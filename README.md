@@ -1,8 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Coin Tracker is a project for tracking the price of today's' cryptocurrency prices and news update on cryptocurrency.
 
 ## Getting Started
 
-First, run the development server:
+First,
+
+1. Install git
+   Git logo
+
+Git is a version control system that is used for tracking changes in a file. Git is an imporant tool we'll be using to work on our github projects. If you want to learn how to install git without any errors, follow this tutorial, if not, install it and move on to the next step.
+
+2. Fork this repository.
+
+Fork this repository using the fork button on the top right of this page, or the pencil icon on the right. This will create a copy of the project with your name. 3. Clone your fork.
+
+Cloning a project is simply taking that project and making a copy on your local machine. To clone this project, click the button on green that says code and on the drop down box, copy the URL of the project in the box and open up your git bash terminal and type in the following command `git clone "URL you just copied`
+It should look like this:
+
+git clone https://github.com/Emmanueluzoezie/coin-tracker.git
+Where "your_name" will be your username on GitHub. Running this command will clone the project in your local machine.
+
+3. Switch directory
+   Next switch into the folder of the repo we just cloned by typing this command in your bash terminal:
+
+cd <repository name>
+cd stands for "change directory" and the repository name is the name of the project repo: coin-tracker therefore the command will be cd coin-tracker
+
+4. install npm or yarn into the project
+
+```
+npm install git
+# or
+yarm add
+```
+
+5. Point origin branch to upstream
+   We need to point our forked repo(origin) to the upstream(source) repo: To do that, type the command
+
+git remote add upstream <URL of source repo>
+git remote add upstream https://github.com/Emmanueluzoezie/coin-tracker.git
+
+6. Create branch
+   Now we have successfully pointed our origin repo to upstream, we can now create a new branch which we'll be making our changes from. To create a branch, type the command:
+
+git checkout -b <branch name>
+You can name the branch anything you want, but for the sake of this project, name your branch add-yourname (replace yourname with your own name). E.g git checkout -b my-branch
+
+7. Make your changes.
+   Enter the project and make your changes
+
+8. run the development server:
 
 ```bash
 npm run dev
@@ -12,23 +58,19 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page. adding your own code inside the project.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+9. git status
+   This will show us a list of all changes made.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Next do a git add .(period) which means, add every changes made.
 
-## Learn More
+git add .
+Now we can write our commit message.
 
-To learn more about Next.js, take a look at the following resources:
+git commit -m 'write your changes'
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+10. Push changes to GitHub
+    Now we have sucessfully added our profile, we can now push the changes to GitHub. Use the command below to do that.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+git push origin <branch name>

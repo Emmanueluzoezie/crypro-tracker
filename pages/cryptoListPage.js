@@ -2,13 +2,11 @@ import Head from 'next/head'
 import HeadLine from '../components/Headline';
 import Menu from "../components/Menu";
 import Footer from '../components/footer'
-import TopTenCoins from '../components/topTenCoins';
-import TopGainAndLoss from '../components/cryptoLossAndGain';
-import NewsFeed from '../components/newsFeed';
+import CryproList from '../components/cryptoFullList';
 
 
 
-export default function Home() {
+export default function CryptoListPage() {
 
 
   return (
@@ -23,9 +21,7 @@ export default function Home() {
         <Menu />
         <HeadLine />
       </header>
-      <TopTenCoins />
-      <TopGainAndLoss />
-      <NewsFeed />
+      <CryproList />
       <Footer />
     </div>
   )

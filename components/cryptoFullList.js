@@ -49,17 +49,17 @@ const CryproList = () => {
                 </div>
                 <div className="flex w-[55%] space-x-6 px-3">
                     <div className="w-full flex items-center">
-                        <div className="lg:flex items-center lg:w-[60%]">
+                        <div className="lg:flex items-center lg:w-[65%]">
                             <div className="flex flex-col lg:flex-row w-full items-center">
                               <h2 className="text-[14px] mr-8 lg:w-[35%] lg:text-[16px]">Price</h2>
                                 <h2 className="flex items-center text-[12px] lg:w-[10%]">%</h2>
                                 <h2 className="text-[10px] lg:text-[12px] lg:w-[40%] px-1 rounded dark:bg-gray-400 dark:text-gray-900 dark:lg:bg-inherit dark:lg:text-inherit ml-5">Market cap</h2>
                             </div>
                         </div>
-                        <div className="flex items-center lg:w-[40%]">
+                        <div className="flex items-center lg:w-[35%]">
                             <div className="w-full flex text-[14px]">
-                                <h2 className="text-[12px] hidden mx-6 xl:flex w-[45%]">Market cap 24h</h2>
-                                <h2 className="text-[12px] w-[45%] ml-2">Ath</h2>
+                                <h2 className="text-[12px] mx-6 w-[75%]">Market cap 24h</h2>
+                                <h2 className="text-[12px] w-[15%] ml-2">Ath</h2>
                             </div>
                         </div>
                     </div>

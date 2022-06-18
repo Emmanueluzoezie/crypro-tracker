@@ -8,6 +8,8 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { CryptoState } from "../context/cryptoContext";
 import Login from "./login"
+import Logout from "./logout"
+import { useUser } from '@auth0/nextjs-auth0';
 
 
 const Menu = () => {
@@ -15,6 +17,7 @@ const Menu = () => {
       const [colorTheme, setTheme] = UseDarkMode();
       const { currency, setCurrency } = useContext(CryptoState);
       const router = useRouter();
+      const { user, error, isLoading } = useUser();
 
       return (
         <div>
@@ -39,12 +42,66 @@ const Menu = () => {
                   style={{ width: 85, height: 30 }}
                   onChange={(e) => setCurrency(e.target.value)}
                 >
-                  <MenuItem value={"USD"}>USD</MenuItem>
+                  {/* <MenuItem value={"USD"}>USD</MenuItem>
                   <MenuItem value={"INR"}>INR</MenuItem> 
-                  <MenuItem value={"NGN"}>NGN</MenuItem> 
+                  <MenuItem value={"NGN"}>NGN</MenuItem> */}
+                  <MenuItem value="USD">USD</MenuItem>
+                  <MenuItem value="AED">AED</MenuItem>
+                  <MenuItem value="ARS">ARS</MenuItem>
+                  <MenuItem value="AUD">AUD</MenuItem>
+                  <MenuItem value="BGN">BGN</MenuItem>
+                  <MenuItem value="BRL">BRL</MenuItem>
+                  <MenuItem value="BSD">BSD</MenuItem>
+                  <MenuItem value="CAD">CAD</MenuItem>
+                  <MenuItem value="CHF">CHF</MenuItem>
+                  <MenuItem value="CLP">CLP</MenuItem>
+                  <MenuItem value="CNY">CNY</MenuItem>
+                  <MenuItem value="COP">COP</MenuItem>
+                  <MenuItem value="CZK">CZK</MenuItem>
+                  <MenuItem value="DKK">DKK</MenuItem>
+                  <MenuItem value="DOP">DOP</MenuItem>
+                  <MenuItem value="EGP">EGP</MenuItem>
+                  <MenuItem value="EUR">EUR</MenuItem>
+                  <MenuItem value="FJD">FJD</MenuItem>
+                  <MenuItem value="GBP">GBP</MenuItem>
+                  <MenuItem value="GTQ">GTQ</MenuItem>
+                  <MenuItem value="HKD">HKD</MenuItem>
+                  <MenuItem value="HRK">HRK</MenuItem>
+                  <MenuItem value="HUF">HUF</MenuItem>
+                  <MenuItem value="IDR">IDR</MenuItem>
+                  <MenuItem value="ILS">ILS</MenuItem>
+                  <MenuItem value="INR">INR</MenuItem>
+                  <MenuItem value="ISK">ISK</MenuItem>
+                  <MenuItem value="JPY">JPY</MenuItem>
+                  <MenuItem value="KRW">KRW</MenuItem>
+                  <MenuItem value="KZT">KZT</MenuItem>
+                  <MenuItem value="MVR">MVR</MenuItem>
+                  <MenuItem value="MXN">MXN</MenuItem>
+                  <MenuItem value="MYR">MYR</MenuItem>
+                  <MenuItem value="NGN">NGN</MenuItem> 
+                  <MenuItem value="NOK">NOK</MenuItem>
+                  <MenuItem value="NZD">NZD</MenuItem>
+                  <MenuItem value="PAB">PAB</MenuItem>
+                  <MenuItem value="PEN">PEN</MenuItem>
+                  <MenuItem value="PHP">PHP</MenuItem>
+                  <MenuItem value="PKR">PKR</MenuItem>
+                  <MenuItem value="PLN">PLN</MenuItem>
+                  <MenuItem value="PYG">PYG</MenuItem>
+                  <MenuItem value="RON">RON</MenuItem>
+                  <MenuItem value="RUB">RUB</MenuItem>
+                  <MenuItem value="SAR">SAR</MenuItem>
+                  <MenuItem value="SEK">SEK</MenuItem>
+                  <MenuItem value="SGD">SGD</MenuItem>
+                  <MenuItem value="THB">THB</MenuItem>
+                  <MenuItem value="TRY">TRY</MenuItem>
+                  <MenuItem value="TWD">TWD</MenuItem>
+                  <MenuItem value="UAH">UAH</MenuItem>
+                  <MenuItem value="UYU">UYU</MenuItem>
+                  <MenuItem value="ZAR">ZAR</MenuItem> 
                 </Select>
                 {colorTheme === "light"? (<LightModeIcon className="cursor-pointer text-green-600 hover:text-green-800 h-7 dark:dark-color dark:hover:text-gray-400 mx-4 " onClick={() => setTheme("light")} />) : (<DarkModeIcon className="cursor-pointer text-green-600 hover:text-green-800 dark:dark-color h-7 mx-4 dark:hover:text-gray-400" onClick={() => setTheme("dark")}/>)}
-                {/* <Login /> */}
+                {user ? (<Logout /> ): (<Login />) }
+                
               </div>
               </div>
             </div>

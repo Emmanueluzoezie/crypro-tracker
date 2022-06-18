@@ -19,13 +19,13 @@ function MyApp({ Component, pageProps }) {
     </Head>
 
 
-    {/* <UserProvider> */}
+    <UserProvider>
       <Provider store={store}>
         <CryptoContext>
           <Component {...pageProps} />
         </CryptoContext>
       </Provider>
-    {/* </UserProvider>   */}
+    </UserProvider>  
     
     </>
     )

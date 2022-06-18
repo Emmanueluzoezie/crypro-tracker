@@ -31,7 +31,7 @@ function Crypto ({rank, name, image, price, percent, id}){
                 <div>
                   <p className="font-bold whitespace-nowrap my-1 md:my-0 text-sm sm:text-xl truncate">{name}</p>
                 </div>
-                <NumberFormat className="font-semibold sm:text-xl text-sm" value={prices} displayType={'text'} thousandSeparator={true} prefix={`${symbol}`}  />
+                <NumberFormat className="font-semibold sm:text-xl text-sm truncate m-1" value={prices} displayType={'text'} thousandSeparator={true} prefix={`${symbol}`}  />
                 {/* <span>{prices}</span> */}
                 <div className="flex justify-center items-center font-bold text-xs sm:text-xl" style={{ color:getStatusText(percents)}}>
                     <ArrowDropDownIcon />

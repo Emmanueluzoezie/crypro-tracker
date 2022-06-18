@@ -11,14 +11,14 @@ import { useContext } from "react";
 import { removeFromBasket } from "../slices/basketSlice";
 
 
-function FavoriteComponent ({name, id, rank, marketCapDaily, image, price, marketCap, coinSymbol, percent}){
+function FavoriteComponent ({name, id, rank, marketCapDaily, image, price, marketCap, coinSymbol, allTimeHigh, percent}){
 
 
     const { symbol } = useContext(CryptoState)
     let prices = Number(price).toFixed(3)
     let percents = Number(percent).toFixed(3)
     let marketCapDailys = Number(marketCapDaily).toFixed(3) 
-    console.log(rank)
+    // console.log(allTimeHigh)
 
     const dispatch = useDispatch()
 
@@ -82,8 +82,8 @@ function FavoriteComponent ({name, id, rank, marketCapDaily, image, price, marke
                      </div>
                      <div className="hidden lg:flex items-center lg:w-[40%]">
                          <div className="w-full flex">
-                             <NumberFormat className="text-[12px] hidden xl:flex w-[45%] ml-2" value={marketCap} displayType={'text'} thousandSeparator={true} />
-                             <NumberFormat className="text-[12px] w-[45%] ml-2" value={marketCap} displayType={'text'} thousandSeparator={true} />
+                             <NumberFormat className="text-[12px] hidden xl:flex w-[45%] ml-2 truncate" value={marketCapDailys} displayType={'text'} thousandSeparator={true} />
+                             <NumberFormat className="text-[12px] w-[45%] ml-6" value={allTimeHigh} displayType={'text'} thousandSeparator={true} />
                          </div>
                      </div>
                  </div>

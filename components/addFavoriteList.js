@@ -11,22 +11,19 @@ import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../slices/basketSlice";
 import { useUser } from '@auth0/nextjs-auth0';
+import Login from "./login"
 import Loader from './loading';
 
 
 
-function FullCryptoListComponent ({name, id, rank, marketCapDaily, image, price, marketCap, coinSymbol, percent}){
+function AddFavoriteList ({name, id, rank, marketCapDaily, image, price, marketCap, coinSymbol, percent}){
 
     const { symbol } = useContext(CryptoState)
-    // const { user, error, isLoading } = useUser();
+    const { user, error, isLoading } = useUser();
     const router = useRouter()
     let prices = Number(price).toFixed(2)
     let marketCapDailys = Number(marketCapDaily).toFixed(3) 
     let percents = Number(percent).toFixed(3)
-
-    // if (isLoading) return <Loader />
-    // if (error) return <div>{error.message}</div>;
-
     const dispatch = useDispatch();
 
     const addItemToBasket = () => {
@@ -59,7 +56,7 @@ function FullCryptoListComponent ({name, id, rank, marketCapDaily, image, price,
     return(
         <div className="px-2 lg:py-1 cursor-pointer">
                 <div className="flex items-center space-x-2 lg:py-3 relative border-b-2 lg py-2 dark:text-white dark:border-gray-600 border-gray-300 cursor-pointer">
-                        <StarBorderIcon onClick={addItemToBasket} className="absolute top-3 right-0 lg:relative lg:top-0 lg:right-0 cursor-pointer" />
+                        <StarBorderIcon onClick={user?{addItemToBasket}:(<Login />)} className={`absolute top-3 right-0 lg:relative lg:top-0 lg:right-0 cursor-pointer`} />
                        <div className="flex items-center  justify-between w-[85%]" onClick={() => router.push(`/${id}`)}>
                           <div className="flex items-center">
                             <div className="flex items-center">
@@ -79,7 +76,7 @@ function FullCryptoListComponent ({name, id, rank, marketCapDaily, image, price,
         </div> 
     )
 }
-export default FullCryptoListComponent
+export default AddFavoriteList
 
 
 

@@ -100,7 +100,7 @@ const Menu = () => {
                   <MenuItem value="ZAR">ZAR</MenuItem> 
                 </Select>
                 {colorTheme === "light"? (<LightModeIcon className="cursor-pointer text-green-600 hover:text-green-800 h-7 dark:dark-color dark:hover:text-gray-400 mx-4 " onClick={() => setTheme("light")} />) : (<DarkModeIcon className="cursor-pointer text-green-600 hover:text-green-800 dark:dark-color h-7 mx-4 dark:hover:text-gray-400" onClick={() => setTheme("dark")}/>)}
-                {user ? (<Logout /> ): (<Login />) }
+                {/* {user ? (<Logout /> ): (<Login />) } */}
                 
               </div>
               </div>

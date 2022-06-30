@@ -45,6 +45,6 @@ export const selectCryptoCoins = (state) => state.basket.cryptoCoins;
 export const selectTotal = (state) =>
   state.basket.cryptoCoins.reduce((total, item) => total += item.rank, 0);
   export const selectFavorite = (state) =>
-  state.basket.cryptoCoins.find((coin) => coin === coin.name);
+  state.basket.cryptoCoins.find((coin, item) => coin.id === item.id);
 
 export default basketSlice.reducer;

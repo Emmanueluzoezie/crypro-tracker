@@ -1,7 +1,7 @@
 import { Avatar } from '@mui/material'
 import Image from "next/image" 
 import Link from "next/link"
-import { useState } from 'react';
+import { useState, useRef,useEffect } from 'react';
 import NumberFormat from 'react-number-format';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
@@ -9,7 +9,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { CryptoState } from "../context/cryptoContext"
 import { useContext } from "react";
 import { useDispatch } from "react-redux";
-import { addToBasket } from "../slices/basketSlice";
+import { addToBasket,removeFromBasket } from "../slices/basketSlice";
 import { useRouter } from 'next/router'
 import { useSelector } from "react-redux";
 import { selectFavorite, selectTotal } from "../slices/basketSlice";
@@ -23,18 +23,17 @@ function FullCryptoListComponent ({name, id, rank, allTimeHigh, marketCapDaily, 
     let marketCapDailys = Number(marketCapDaily).toFixed(3) 
     let percents = Number(percent).toFixed(2)
     const selectFavorites = useSelector(selectFavorite)
-    // const [style, setStyle] = useState("");
+    const [color, setColor] = useState('')
   
     function addColor (){
-       return "bg-green-500";
-    }
+        const className="bg-green-500"
+        setColor(className)
+    };
+    // const col = addColor()
 
-
-    // const favoriteItem = cryptoCoins.map(
-    //     (basketItem) => basketItem.id === id
-    //   );
-
-      console.log(selectFavorites)
+    // function removeColor (){
+    //     setColor("")
+    // };
 
     // if (isLoading) return <Loader />
     // if (error) return <div>{error.message}</div>;
@@ -53,17 +52,35 @@ function FullCryptoListComponent ({name, id, rank, allTimeHigh, marketCapDaily, 
             image,
             percent,
             coinSymbol,
-            allTimeHigh
+            allTimeHigh,
+            addColor
+            
           })
         );
         
       };
 
-      const HandleClick =() => {
-        addItemToBasket()
-        addColor ()
+      const removeItemFromBasket = () => {
+        // event.preventDefault();
+        dispatch(removeFromBasket({ id }));
       }
 
+    //   const HandleClick =() => {
+    //     addItemToBasket()
+    //     addColor ()
+    //   }
+    
+    //   const handleDoubleClick =() => {
+    //     colorRef.current.focus()
+    //     removeItemFromBasket()
+    //     document.body.addEventListener("dblclick", removeColor);
+    //   }
+    
+    //   refCallback(item) {
+    //     if (item) {
+    //       item.getDOMNode().ondblclick = this.handleDoubleClick;
+    //     }
+    //   },
 
     function getStatusText(change){
         if(change < 0){
@@ -77,7 +94,7 @@ function FullCryptoListComponent ({name, id, rank, allTimeHigh, marketCapDaily, 
     return(
         <div className="lg:py-1 cursor-pointer">
                 <div className="flex items-center space-x-2 lg:py-3 relative border-b-2 lg py-2 pl-4 md:pl-2 dark:text-white dark:border-gray-600 border-gray-300 cursor-pointer">
-                <StarBorderIcon onClick={HandleClick} className={`absolute top-3 right-0 lg:relative lg:top-0 lg:right-0 cursor-pointer `} />
+                <StarBorderIcon onClick={addItemToBasket} className={`absolute top-3 right-0 lg:relative lg:top-0 lg:right-0 cursor-pointer ${color}`} />
                         <div  className="flex items-center w-[40%] lg:w-[37%]" onClick={() => router.push(`/${id}`)}>
                         <div className="w-full flex items-center">
                             <div className="flex items-center lg:w-[30%]">
